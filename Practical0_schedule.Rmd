@@ -2,12 +2,12 @@
 title: "Navigating R and RStudio"
 author: "NES2303"
 output:
-  word_document:
-    number_sections: true
-    reference_docx: template.docx
   html_document:
     df_print: paged
     number_sections: true
+  word_document:
+    number_sections: true
+    reference_docx: template.docx
 ---
 
 ```{r setup, include=FALSE, warning = FALSE, message = FALSE}
@@ -116,8 +116,8 @@ Using a package is a 2-step process:
 A common mistake is to forget to use the `library()` command. I try to remember to use it first in any R session.
 
 
-## Installing an R package (For future reference: **not needed for this practical**)
-R has a special function called `install.packages()` that allows you download software from the internet onto your PC. On an NUIT computer it will install it into a networked folder, so it should be available for you on any NUIT computer. **Note** Most of the packages you will need for NES2303 should already have been installed onto the NUIT cluster room PCs, so you will only have to activate them. If working on your own laptop or MacBook (see below), or using a package not already pre-installed by NUIT, then see below (**unsupported**).
+## Installing an R package
+R has a special function called `install.packages()` that allows you download software from the internet onto your PC. On an NUIT computer it will install it into a networked folder, so it should be available for you on any NUIT computer. If working on your own laptop or MacBook the package will be installed on the laptop's disk drive (**unsupported**).
 
 On the left of your RStudio screen you should see a large window headed **Console** which will contain introductory text about the R version you are usin etc. On my PC it shows as version 4.0.2 but you may have a more recent version:
 
@@ -125,10 +125,10 @@ On the left of your RStudio screen you should see a large window headed **Consol
 knitr::include_graphics("images/R_console_initial.png")
 ```
 
-There is **no need to enter the following now**, but keep it for reference. If, for example, you wanted to install the `remotes` package then in the Console window you would type the text below followed by the Enter key:
+You are going to use the `mosaic` package for the first few practicals. You only have to install it once, and it will auto-install some additional packages in the process. In the Console window type the following text below, followed by the Enter key:
 
 ```{r, eval=FALSE}
-install.packages("remotes")
+install.packages("mosaic")
 ```
 
 Normally lots of output is generated as packages are downloaded from the internet and stored on your computer. This is nothing to worry about.
@@ -137,60 +137,11 @@ Normally lots of output is generated as packages are downloaded from the interne
 Use the `library()` function to activate an R package. Installing an R package simply puts the extra software on your PC, but it does not make it available for use. This is because you may have many packages eventually installed, that might have commands with identical names but which do different things. To take a simple example, in some packages the `plot` command will create a map, whereas in other packages it might display a genome phylogeny, and you would not want to confuse them. Therefore, in any R session you generally only make available the packages you need. To make the commands from a package available to use, enter the `library` command followed by the package name.
 
 
-## The NES2303 R package
-For this module I have created a small R package called `NES2303`. This provides you a few useful extras that should make learning R easier:
-
-* automatic installation and activation of the `mosaic` and `ggformula` packages that aid "goal-oriented" methods for data science and simple plots
-* automatic installation and activation of the `ggplot2` and `tidyr` packages for improved plots and manipulation of data
-* automatic installation and activation of the `vegan` package to handle multiple response data such as obtained from genomics sequencing or wildlife species surveys
-* automatic installation and activation of the `car` package to handle unbalanced datasets that might arise with missing data
-* customised functions for easier analysis of multiple response data
-* customised functions to display and label graphical analyses of multiple response data
-
-As the `NES2303` package is solely for use by Newcastle University students it is unsurprisingly not available on CRAN. It should already be available on the NUIT PC cluster, so all you have to do is "activate" the package to make the commands available.
-
-```{r, eval=FALSE}
-library(NES2303)
-```
-
-
-`Welcome to the NES2303 package to support teaching`
-
-If that is displayed then the `NES2303` package has been successfully activated and is ready for use.
-
-
-## Installing the `NES2303` package on your own laptop/Macbook (**unsupported**)
-Past experience has indicated that sometimes students want to use their own PCs or MacBooks. We cannot provide you with help on this as every student's setup is different, but these general guidelines may help. Please do not ask for help on using your own laptop or MacBook in the first few practicals until you are confident in using R.
-
-Most R packages are stored on the CRAN website, but as the `NES2303` package is just for this course, its installation is slightly different. **Note** we are unable to provide you with any support on installing it onto your own PC. You can do most of the NES2303 course using the `mosaic`, `tidyr`, `car` and `vegan` packages, although some commands are more difficult initially. To install `NES2303` on your own machine you would type into the Console:
-
-
-```{r, eval=FALSE}
-install.packages("remotes")
-library(remotes)
-install_github("rasanderson/NES2303")
-```
-
-
-If this fails, double check any error messages, especially Quartz drivers on MacBooks. Otherwise you will need to manually work with individual packages:
-
-
-```{r, eval=FALSE}
-install.packages("mosaic")
-install.packages("car")
-install.packages("tidyr")
-install.packages("vegan")
-```
-
-You will have to activate them individually with their own `library` calls, rather than by a single call to `NES2303`:
-
 ```{r, eval=FALSE}
 library(mosaic)
-library(car)
-library(tidyr)
 ```
 
-The `vegan` package is needed for the last two practicals later in the Semester, but hopefully we will have the `NES2303` package working for you by then.
+You will probably see some text displayed warning you that various 'objects are masked'. This is simply to tell you that the `mosaic` package loads additional commands, that have the same names as some basic ones, and is nothing to worry aboue.
 
 
 # RStudio projects
@@ -302,7 +253,7 @@ There are loads of really great chefs (coders) in the world who have already fig
 In NES2303 all of the data will be provided for you on Canvas for import into R. When you work independently, you will probably be entering data in Microsoft Excel. Either way there are a couple of 'gotchas' to look out for. Download the Excel File `yield.xlsx` from Canvas - you can open it in Excel and look at it, but don't edit it or make any changes to it. The file contains crop growth in three different soil types. Now, in your Script window (top left) type the following text:
 
 ```{r, eval=FALSE}
-library(NES2303) # or library(mosaic) if NES2303 did not install
+library(mosaic)
 pract0_dat<-read.csv("yield.csv")
 summary(pract0_dat)
 mean(yield~soil,data=pract0_dat)
@@ -318,8 +269,8 @@ A few key points:
 ```{r, eval=FALSE}
 # Example script to check setup is working
 
-# Activate the NES2303 package so extra commands available
-library(NES2303) # or library(mosaic) if NES2303 did not install
+# Activate the mosaic package so extra commands available
+library(mosaic)
 
 # Import crop yields for different soils into a table pract0_dat
 pract0_dat <- read.csv("yield.csv")
@@ -331,7 +282,7 @@ summary(pract0_dat)
 mean(yield ~ soil, data = pract0_dat)
 ```
 
-Now save your R script. Click on **File -> Save** from the RStudio main menu, or if you prefer the save icon, and save the script as `practical0.R`. Next run each line of your script. Click on the `library(NES2303)` line and hit the **Ctl-Shift-Enter** keys simultaneously. This key combination sends a line from your script to the Console window where it is executed. The command should run without displaying anything as `NES2303` is probably already activated. Your cursor should jump to the `read.csv` line. (If you had problems with the `NES2303` package, simply type `library(mosaic)` instead).
+Now save your R script. Click on **File -> Save** from the RStudio main menu, or if you prefer the save icon, and save the script as `practical0.R`. Next run each line of your script. Click on the `library(mosaic)` line and hit the **Ctl-Shift-Enter** keys simultaneously. This key combination sends a line from your script to the Console window where it is executed. The command should run without displaying anything as `mosaic` is probably already activated. Your cursor should jump to the `read.csv` line.
 
 However, when you hit Ctl-Shift-Enter on the `read.csv` line you should get the following error:
 
@@ -402,7 +353,7 @@ My preference (and recommendation to you) is to put all your CSV files into a `D
 
 # Working with data
 ## Using R as a calculator
-You probably won't use this very often, but you can easily enter values into the Console window if you need to do some quick arithmetic:
+You probably won't use this very often, but you can easily enter values into the **Console** window (bottom-left) if you need to do some quick arithmetic:
 
 ```{r}
 7 * 3
