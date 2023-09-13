@@ -3,9 +3,9 @@ title: "NES2303 Course Handbook Experimental Design and Statistics 2023-2024"
 author: "Roy Sanderson"
 date: "04/08/2023"
 output:
+  html_document: default
   word_document:
     reference_docx: template.docx
-  html_document: default
   pdf_document: default
 ---
 
@@ -169,7 +169,7 @@ In the practicals you will be able to explore the example data shown on the webs
 These are scheduled for seven weeks (Week 4 to Week 11 - Week 10 is 'Enrichment Week' with no teaching) in the main Herschel Building cluster room (Fell) on the first floor.
 
 ### Ten-minute videos (TMV)
-I have prepared a series of short (5 to 10 minutes) animated videos to explain in simple, non-technical terms some quantitative biology concepts. These were new for 2021-22 and the students found them useful as they try to avoid complex mathematics. If I have time I will add to the series this year.
+I have prepared a series of short (5 to 10 minutes) animated videos to explain in simple, non-technical terms some quantitative biology concepts. These were new for 2022-23 and the students found them useful as they try to avoid complex mathematics. If I have time I will add to the series this year. (I've not had time to update the module code in most of them which changed this year.)
 
 ### Cheatsheet
 There is a lot of new information to absorb in this module so I've prepared a 2-page quick-reference "cheatsheet" with the main statistical analyses. This will probably be incomprehensible to you at the start of this course (don't panic!), but should soon be a valuable resource to help you as you progress and develop your understanding.
@@ -181,13 +181,13 @@ This is a 10-credit module so assumes you will devote 100 hours of study time. T
 ## Detailed structure of this course
 Materials are all provided on Canvas in the following sections (Canvas 'modules'). 
 Each contains a set of presentations, interactive websites, a related practical, and five include an online Canvas test.
-You will not be able to access the practicals (or tests) until you have reviewed the interactive websites.
+You will not be able to access the practicals (or tests) until you have reviewed the interactive websites. The area on Canvas called "Timetable - a guide to managing your workload for NES2303" gives exact times, dates, venues for all activities.
 
-### Orientation practical (Week 4)
+### Section Zero - Orientation practical
 This will simply be to help you setup R/RStudio on an NUIT PC, understand files, folders, filetypes, R packages etc.
 
 
-### Section One - Summarising and displaying data (Week 5)
+### Section One - Summarising and displaying data 
 This will cover simple statistics, including measures of central tendency and variation in your data.
 
 * Statistical power and hypothesis tests will be covered. 
@@ -200,57 +200,53 @@ This section will also provide guidance on good methods to visualise your data.
 Data visualisation is essential both prior to data analysis, as well as to communicate your results.
 
 #### Interactive websites
-[Introducing R and RStudio](https://naturalandenvironmentalscience.shinyapps.io/RstudioInstall/)
-
-[Data summaries and visualisation](https://naturalandenvironmentalscience.shinyapps.io/Summary_vis/)
-
-[Understanding measures of central tendancy and variation](https://naturalandenvironmentalscience.shinyapps.io/variation/)
+Introducing R and RStudio
+Data summaries and visualisation
+Understanding measures of central tendancy and variation
 
 #### Practical
-Practice examples from interactive webistes
+Practice examples from interactive websites
 
 
-### Section Two - Linear models and ANOVA (Week 6)
+### Section Two - Linear models and ANOVA
 Learn about the concept of linear models, the R `lm` and `anova` functions, and how to interpret them. 
 Understand the assumptions behind linear models, and look at examples where the explanatory variables are continuous or categorical.
 
 #### Interactive websites
-[Linear models with continuous explanatory variables](https://naturalandenvironmentalscience.shinyapps.io/linear_explan/)
-
-[Linear models with categorical explanatory variables](https://naturalandenvironmentalscience.shinyapps.io/categorical_explan/)
+Linear models with continuous explanatory variables
+Linear models with categorical explanatory variables
 
 #### Practical
 Practice examples from interactive webistes
 
 
-### Section Three - Dealing with multiple explanatory variables (Week 7)
+### Section Three - Dealing with multiple explanatory variables
 This section explores situations where you might have multiple explanatory variables. 
 These might not be independent in their effects, so we explore interactions between them, and how to understand them. 
 We also consider ways in which you can improve your experimental design by blocking, and look at what to do if things go wrong and you lose some data. 
 We also consider how ANOVA operates - what are the basic concepts of an ANOVA table, and how are we able to study treatment effects by looking at variances?
 
 #### Interactive websites
-[Multiple explanatory variables, interactions, blocks and missing data](https://naturalandenvironmentalscience.shinyapps.io/multiple_explan/)
-
-[Understanding how sums of squares are used in linear models](https://naturalandenvironmentalscience.shinyapps.io/how_anova_works/)
+Multiple explanatory variables, interactions, blocks and missing data
+Understanding how sums of squares are used in linear models
 
 #### Practical
 Practice examples from interactive webistes
 
 
-### Section Four - Generalised linear models (Week 8)
+### Section Four - Generalised linear models
 The assumptions behind linear models, accessed through the `lm()` function in R, are breached when our response data consists of counts, proportions, or yes / no, true / false, dead / alive. 
 We can extend linear models by generalising them using the `glm()` function. 
 This sections shows you the two key statistical distributions relevant to these types of data, the Poisson and Binomial distributions, and how they relate the the traditional Gaussian (normal) distribution used in linear models.
 
 #### Interactive website
-[Generalised linear models](https://naturalandenvironmentalscience.shinyapps.io/generalised_linear_models/)
+Generalised linear models
 
 #### Practical
 Practice examples from interactive webistes
 
 
-### Section Five - Multiple response data; unconstrained ordination (Week 9)
+### Section Five - Multiple response data; unconstrained ordination
 Sometimes you will not have a single response measurement, but might have 10, 20, 50, or hundreds. 
 If you are dealing with genomic or bioinformatic data, you might have thousands of gene sequences that you want to understand. 
 If you do surveys of plants, birds or insects you may have large numbers of species. 
@@ -259,20 +255,20 @@ In this section we introduce you to unconstrained ordination, which allows you t
 You can also make simple comparisons with potential explanatory variables.
 
 #### Interactive website
-[Unconstrained ordination](https://naturalandenvironmentalscience.shinyapps.io/Unconstrained/)
+Unconstrained ordination
 
 #### Practical
 Practice examples from interactive webistes
 
 
-### Section Six - Multiple response data; constrained ordination (Week 11)
+### Section Six - Multiple response data; constrained ordination
 Here we demonstrate more advanced methods of using your explanatory data when you are working with multiple response variables. 
 You will learn about permutation tests, which allow you to 'simulate' conventional ANOVA tests, such that you can infer the importance of your explanatory variables. 
 We also discuss the best ways of visualising the results of these analyses.
 Advice from Roy Sanderson (SNES) advice on report-writing, planning research projects in Stage 3 etc.
 
 #### Interactive website
-[Constrained ordination](https://naturalandenvironmentalscience.shinyapps.io/Constrained/)
+Constrained ordination
 
 #### Practical
 Practice examples from interactive websites
@@ -284,7 +280,7 @@ These all fit into the (generalised) linear model framework. Comparison of the
 standard (base) R commands and the equivalent via `lm()` or `glm()`
 
 #### Interactive website
-[Appendix - other tests](https://naturalandenvironmentalscience.shinyapps.io/Other_tests/)
+Appendix - other tests
 
 
 
