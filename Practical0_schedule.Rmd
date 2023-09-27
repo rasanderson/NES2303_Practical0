@@ -116,8 +116,14 @@ Using a package is a 2-step process:
 A common mistake is to forget to use the `library()` command. I try to remember to use it first in any R session.
 
 
-## Installing an R package (For future reference: **not needed for this practical**)
-R has a special function called `install.packages()` that allows you download software from the internet onto your PC. On an NUIT computer it will install it into a networked folder, so it should be available for you on any NUIT computer. **Note** Most of the packages you will need for NES2303 should already have been installed onto the NUIT cluster room PCs, so you will only have to activate them. If working on your own laptop or MacBook (see below), or using a package not already pre-installed by NUIT, then see below (**unsupported**).
+## Installing the R packages needed for NES2303 (**Needed for this practical**)
+You need three R packages installed initially for this module. You should only need to do the installation once on an NUIT networked PC. The three packages are:
+
+* `mosaic` : this does a goal-oriented approach for plots and models
+* `car` : this makes the output of some analyses easier to understand
+* `tidyr` : useful for tidying up date
+
+You will also use the `vegan` package in the last two practical classes.
 
 On the left of your RStudio screen you should see a large window headed **Console** which will contain introductory text about the R version you are usin etc. On my PC it shows as version 4.0.2 but you may have a more recent version:
 
@@ -125,55 +131,7 @@ On the left of your RStudio screen you should see a large window headed **Consol
 knitr::include_graphics("images/R_console_initial.png")
 ```
 
-There is **no need to enter the following now**, but keep it for reference. If, for example, you wanted to install the `remotes` package then in the Console window you would type the text below followed by the Enter key:
-
-```{r, eval=FALSE}
-install.packages("remotes")
-```
-
-Normally lots of output is generated as packages are downloaded from the internet and stored on your computer. This is nothing to worry about.
-
-## Activating an R package (**Needed for every practical**)
-Use the `library()` function to activate an R package. Installing an R package simply puts the extra software on your PC, but it does not make it available for use. This is because you may have many packages eventually installed, that might have commands with identical names but which do different things. To take a simple example, in some packages the `plot` command will create a map, whereas in other packages it might display a genome phylogeny, and you would not want to confuse them. Therefore, in any R session you generally only make available the packages you need. To make the commands from a package available to use, enter the `library` command followed by the package name.
-
-
-## The NES2303 R package
-For this module I have created a small R package called `NES2303`. This provides you a few useful extras that should make learning R easier:
-
-* automatic installation and activation of the `mosaic` and `ggformula` packages that aid "goal-oriented" methods for data science and simple plots
-* automatic installation and activation of the `ggplot2` and `tidyr` packages for improved plots and manipulation of data
-* automatic installation and activation of the `vegan` package to handle multiple response data such as obtained from genomics sequencing or wildlife species surveys
-* automatic installation and activation of the `car` package to handle unbalanced datasets that might arise with missing data
-* customised functions for easier analysis of multiple response data
-* customised functions to display and label graphical analyses of multiple response data
-
-As the `NES2303` package is solely for use by Newcastle University students it is unsurprisingly not available on CRAN. It should already be available on the NUIT PC cluster, so all you have to do is "activate" the package to make the commands available.
-
-```{r, eval=FALSE}
-library(NES2303)
-```
-
-
-`Welcome to the NES2303 package to support teaching`
-
-If that is displayed then the `NES2303` package has been successfully activated and is ready for use.
-
-
-## Installing the `NES2303` package on your own laptop/Macbook (**unsupported**)
-Past experience has indicated that sometimes students want to use their own PCs or MacBooks. We cannot provide you with help on this as every student's setup is different, but these general guidelines may help. Please do not ask for help on using your own laptop or MacBook in the first few practicals until you are confident in using R.
-
-Most R packages are stored on the CRAN website, but as the `NES2303` package is just for this course, its installation is slightly different. **Note** we are unable to provide you with any support on installing it onto your own PC. You can do most of the NES2303 course using the `mosaic`, `tidyr`, `car` and `vegan` packages, although some commands are more difficult initially. To install `NES2303` on your own machine you would type into the Console:
-
-
-```{r, eval=FALSE}
-install.packages("remotes")
-library(remotes)
-install_github("rasanderson/NES2303")
-```
-
-
-If this fails, double check any error messages, especially Quartz drivers on MacBooks. Otherwise you will need to manually work with individual packages:
-
+Let's install `mosaic`, `car`, `tidyr` and `vegan` now so you are ready to use them for later and they are already installed. In the Console window type the text below followed by the Enter key:
 
 ```{r, eval=FALSE}
 install.packages("mosaic")
@@ -182,7 +140,10 @@ install.packages("tidyr")
 install.packages("vegan")
 ```
 
-You will have to activate them individually with their own `library` calls, rather than by a single call to `NES2303`:
+Normally lots of output is generated as packages are downloaded from the internet and stored on your computer. You will often see other packages being installed at the same time. This is nothing to worry about.
+
+## Activating an R package (**Needed for every practical**)
+Use the `library()` function to activate an R package. Installing an R package simply puts the extra software on your PC, but it does not make it available for use. This is because you may have many packages eventually installed, that might have commands with identical names but which do different things. To take a simple example, in some packages the `plot` command will create a map, whereas in other packages it might display a genome phylogeny, and you would not want to confuse them. Therefore, in any R session you generally only make available the packages you need. To make the commands from a package available to use, enter the `library` command followed by the package name:
 
 ```{r, eval=FALSE}
 library(mosaic)
@@ -190,7 +151,7 @@ library(car)
 library(tidyr)
 ```
 
-The `vegan` package is needed for the last two practicals later in the Semester, but hopefully we will have the `NES2303` package working for you by then.
+The `vegan` package is needed for the last two practicals later in the Semester.
 
 
 # RStudio projects
