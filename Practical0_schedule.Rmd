@@ -2,12 +2,12 @@
 title: "Navigating R and RStudio"
 author: "NES2303"
 output:
-  word_document:
-    number_sections: true
-    reference_docx: template.docx
   html_document:
     df_print: paged
     number_sections: true
+  word_document:
+    number_sections: true
+    reference_docx: template.docx
 ---
 
 ```{r setup, include=FALSE, warning = FALSE, message = FALSE}
@@ -260,13 +260,20 @@ There are loads of really great chefs (coders) in the world who have already fig
 
 
 # Download files from Canvas and import data
-In NES2303 all of the data will be provided for you on Canvas for import into R. When you work independently, you will probably be entering data in Microsoft Excel. Either way there are a couple of 'gotchas' to look out for. Download the Excel File `yield.xlsx` from Canvas - you can open it in Excel and look at it, but don't edit it or make any changes to it. The file contains crop growth in three different soil types. Now, in your Script window (top left) type the following text:
+In NES2303 all of the data will be provided for you on Canvas for import into R. When you work independently, you will probably be entering data in Microsoft Excel. Either way there are a couple of 'gotchas' to look out for. Download the Excel File `yield.xlsx` from Canvas - you can open it in Excel and look at it, but don't edit it or make any changes to it. The file contains crop growth in three different soil types.
+
+Now, in your Script window (top left) type the following text. Note the use of both comments, which are prefixed by `#`, and blank lines to make the text more readable. Just as you use
+headings and paragraphs to make an essay easier to read, use `#` and blank lines to make your
+R script easier to understand:
 
 ```{r, eval=FALSE}
-library(NES2303) # or library(mosaic) if NES2303 did not install
-pract0_dat<-read.csv("yield.csv")
+# Activate the mosaic package so extra functions available
+library(mosaic)
+
+# Import dataset and summarise
+pract0_dat <- read.csv("yield.csv")
 summary(pract0_dat)
-mean(yield~soil,data=pract0_dat)
+mean(yield ~ soil, data=pract0_dat)
 ```
 
 A few key points:
@@ -279,8 +286,8 @@ A few key points:
 ```{r, eval=FALSE}
 # Example script to check setup is working
 
-# Activate the NES2303 package so extra commands available
-library(NES2303) # or library(mosaic) if NES2303 did not install
+# Activate the mosaic package so extra commands available
+library(mosaic)
 
 # Import crop yields for different soils into a table pract0_dat
 pract0_dat <- read.csv("yield.csv")
@@ -292,7 +299,7 @@ summary(pract0_dat)
 mean(yield ~ soil, data = pract0_dat)
 ```
 
-Now save your R script. Click on **File -> Save** from the RStudio main menu, or if you prefer the save icon, and save the script as `practical0.R`. Next run each line of your script. Click on the `library(NES2303)` line and hit the **Ctl-Shift-Enter** keys simultaneously. This key combination sends a line from your script to the Console window where it is executed. The command should run without displaying anything as `NES2303` is probably already activated. Your cursor should jump to the `read.csv` line. (If you had problems with the `NES2303` package, simply type `library(mosaic)` instead).
+Now save your R script. Click on **File -> Save** from the RStudio main menu, or if you prefer the save icon, and save the script as `practical0.R`. Next run each line of your script. Click on the `library(mosaic)` line and hit the **Ctl-Shift-Enter** keys simultaneously. This key combination sends a line from your script to the Console window where it is executed. The command should run without displaying anything as `mosaic` is probably already activated. Your cursor should jump to the `read.csv` line.
 
 However, when you hit Ctl-Shift-Enter on the `read.csv` line you should get the following error:
 
