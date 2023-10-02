@@ -282,7 +282,7 @@ summary(pract0_dat)
 mean(yield ~ soil, data = pract0_dat)
 ```
 
-Now save your R script. Click on **File -> Save** from the RStudio main menu, or if you prefer the save icon, and save the script as `practical0.R`. Next run each line of your script. Click on the `library(mosaic)` line and hit the **Ctl-Shift-Enter** keys simultaneously. This key combination sends a line from your script to the Console window where it is executed. The command should run without displaying anything as `mosaic` is probably already activated. Your cursor should jump to the `read.csv` line.
+Now save your R script. Click on **File -> Save** from the RStudio main menu, or if you prefer the save icon, and save the script as `practical0.R`. Next run each line of your script. Click on the `library(mosaic)` line and hit the <kbd>Ctl</kbd> + <kbd>Enter</kbd> keys simultaneously. The Enter key is the large one at the right of the alphabetic keyboard. This key combination sends a line from your script to the Console window where it is executed. The command should run without displaying anything as `mosaic` is probably already activated. Your cursor should jump to the `read.csv` line.
 
 However, when you hit Ctl-Shift-Enter on the `read.csv` line you should get the following error:
 
@@ -304,7 +304,7 @@ This is such a common error, that I thought it worth emphasising it. Some of you
 * CSV stands for "comma separated value" and is a plain text, simple file, that can be read by hundreds of different programs and apps
 * A standard Microsoft Excel file is a commercial-format file, that can be imported by a more limited range of software. It is much more complex as it can contain multiple tables, forumlae, graphs etc.
 
-So, finally we need to convert our Microsoft Excel file. Go back to your File Manager, navigate to the NES2303 folder (it might already be open) and double-click on the `yield` file to open it in Microsoft Excel. Then click on the **File -> Save As** option, and in the drop-box below the filename, select the CSV option:
+So, finally we need to convert our Microsoft Excel file. Go back to your File Manager, navigate to the NES2303 folder (it might already be open) and double-click on the `yield` file to open it in Microsoft Excel. Then click on the **File -> Save As** option (or **File -> Save a Copy** depending on Excel version), and in the drop-box below the filename, select the CSV option:
 
 
 ![](images/save_as_excel.png)
@@ -637,7 +637,7 @@ In all cases we need to assign the information in the file to an object so our c
 We have already looked at CSV files, which you can export from Microsoft Excel using Excel's "Save As" option. This makes them the most useful "general" format for storing data.
 
 ```{r, eval = FALSE, echo = TRUE}
-my_data_object <- read.csv(path = "Path_to_the_file.csv")
+my_data_object <- read.csv(file = "Path_to_the_file.csv")
 
 ```
 
@@ -653,7 +653,7 @@ The code is similar to that used to read data in, it requires the filepath speci
 ```{r, eval = FALSE, echo = TRUE}
 # writing my_data_object to a file called my_output_data
 
-write.csv(my_data_object, path = "Data/my_output_data.csv")
+write.csv(my_data_object, file = "Data/my_output_data.csv")
 ```
 
 
